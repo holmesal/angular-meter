@@ -1,0 +1,30 @@
+{
+  "name": "fa-meter",
+  "version": "0.0.0",
+  "authors": [
+    "holmesal <yo@alonso.io>"
+  ],
+  "description": "sweet annotated meters for famo.us + angular",
+  "main": [
+    "dist/fa-meter.js",
+    "dist/fa-meter.css"
+  ],
+  "dependencies": {
+    "famous-angular": "https://github.com/Famous/famous-angular.git#af184346b983418a60601b131591180468e14cde"
+    },
+  "keywords": [
+    "angular",
+    "progress",
+    "meter",
+    "holmesal"
+  ],
+  "license": "MIT",
+  "homepage": "http://meter.alonso.io",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
