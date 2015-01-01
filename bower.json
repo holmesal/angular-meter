@@ -1,6 +1,6 @@
 {
   "name": "fa-meter",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "authors": [
     "holmesal <yo@alonso.io>"
   ],
@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "famous-angular": "https://github.com/Famous/famous-angular.git#af184346b983418a60601b131591180468e14cde"
-    },
+  },
   "keywords": [
     "angular",
     "progress",
