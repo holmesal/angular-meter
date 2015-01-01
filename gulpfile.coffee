@@ -13,6 +13,7 @@ debug = require 'gulp-debug'
 merge = require 'gulp-merge'
 uglify = require 'gulp-uglify'
 rename = require 'gulp-rename'
+annotate = require 'gulp-ng-annotate'
 
 gulp.task 'scripts', ->
 
@@ -33,6 +34,7 @@ gulp.task 'scripts', ->
 
   # cross the streams
   merge js, html
+  .pipe annotate()
   .pipe concat 'fa-meter.js'
   .pipe gulp.dest 'dist/'
   .pipe uglify()
