@@ -101,15 +101,15 @@ fa-app.wrapper(
     fa-align="[progress.get(),{{layouts.guide[options.labelPosition]}}]"
     fa-translate="layouts.value.translate[options.labelPosition]"
   )
-    //- fa-modifier(
-    //-   fa-translate="timeline.label.translate(labelFade.get())"
-    //- )
-    //-   fa-modifier(
-    //-     fa-opacity="timeline.label.opacity(labelFade.get())"
-    //-     fa-rotate-x="timeline.label.rotate(labelFade.get())"
-    //-     fa-perspective="70"
-    //-   )
-    fa-surface(
-      fa-size="[true,10]"
-      class="value"
-    ) {{text || value}}
+    fa-modifier(
+      fa-translate="timeline.label.translate(labelFade.get())"
+    )
+      fa-modifier(
+        fa-opacity="timeline.label.opacity(labelFade.get())"
+        fa-rotate-x="timeline.label.rotate(labelFade.get())"
+        fa-perspective="70"
+      )
+        fa-surface(
+          fa-size="[true,10]"
+          class="value"
+        ) {{text || value}}
