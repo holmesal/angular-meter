@@ -4,21 +4,23 @@
     <meta charset="utf-8">
     <title>fa-meter</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="bower_components/famous/dist/famous.css" />
     <link rel="stylesheet" href="bower_components/famous-angular/dist/famous-angular.css" />
     <link rel="stylesheet" href="../dist/fa-meter.css">
   </head>
   <body>
-    <p class="lead">fa-meter</p>
-    <p class="follow">sweet annotated meters for famo.us + angular</p>
+    <!-- <p class="lead">fa-meter</p> -->
+    <p class="follow">annotated meters for angular + famo.us, by <a href="http://twitter.com/alonsoholmes" target="_blank">@alonsoholmes</a></p>
+
+    <a href="https://github.com/holmesal/fa-meter"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
 
 
-    <div ng-controller="ExampleCtrl">
+    <div ng-controller="ExampleCtrl" class="meters">
 
-        <fa-meter value="penguins" label="label" max="peakPenguin" options="options"></fa-meter>
-        <fa-meter value="penguins" label="label" max="peakPenguin" options="options"></fa-meter>
+        <fa-meter value="penguins.top" text="label.top" max="peakPenguin.top" options="options.top"></fa-meter>
+        <fa-meter value="penguins.bottom" text="label.bottom" max="peakPenguin.bottom" options="options.bottom"></fa-meter>
 
     </div>
 

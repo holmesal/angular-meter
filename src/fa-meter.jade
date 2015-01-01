@@ -1,91 +1,115 @@
 fa-app.wrapper(
+  zfa-perspective="70"
 )
   //- fa-surface(
   //-   fa-size="[undefined,undefined]"
   //-   fa-background-color="'green'"
   //- )
   //- fa-modifier(
-  //-   fa-origin="[1,1]"
-  //-   fa-align="[1,1]"
+  //-   fa-origin="[0.5,0.5]"
+  //-   fa-align="[0.5,0.5]"
+  //-   fa-translate="timeline.indicator.translate(labelFade.get())"
   //- )
-  //-   fa-surface(
-  //-     fa-background-color="'red'"
-  //-     fa-size="[10,10]"
+  //-   fa-modifier(
+  //-     fa-origin="[0.5,0.5]"
+  //-     fa-align="[0.5,0.5]"
+  //-     fa-rotate-x="timeline.indicator.rotate(labelFade.get())"
+  //-     fa-opacity="timeline.indicator.opacity(labelFade.get())"
   //-   )
+  //-     fa-surface(
+  //-       fa-background-color="'red'"
+  //-       fa-size="[50,50]"
+  //-     )
+      //- fa-image-surface(
+      //-   fa-image-url="https://avatars1.githubusercontent.com/u/223890?v=3&s=96"
+      //-   fa-size="[200,200]"
+      //- )
+
+  //- full-width background bar
   fa-modifier(
-    fa-origin="[0,1]"
-    fa-align="[0,1]"
-    fa-size="[undefined,undefined]"
+    fa-opacity="options.fade"
+    fa-size="[undefined,{{options.height}}]"
+    fa-origin="[0,{{layouts.guide[options.labelPosition]}}]"
+    fa-align="[0,{{layouts.guide[options.labelPosition]}}]"
   )
-    //- full-width background bar
-    fa-modifier(
-      fa-opacity="options.fade"
-      fa-size="[undefined,{{options.height}}]"
-      fa-origin="[0,1]"
-      fa-align="[0,1]"
+    fa-surface.faded(
+      fa-background-color="options.color"
     )
-      fa-surface.faded(
-        fa-background-color="options.color"
-      )
 
-    //- spacers
-    fa-modifier(
-      ng-if="options.segmented"
-      fa-origin="[0,1]"
-      fa-align="[0,1]"
-      fa-size="[undefined, {{options.height}}]"
+  //- spacers
+  fa-modifier(
+    ng-if="options.segmented"
+    fa-origin="[0,{{layouts.guide[options.labelPosition]}}]"
+    fa-align="[0,{{layouts.guide[options.labelPosition]}}]"
+    fa-size="[undefined, {{options.height}}]"
+  )
+    fa-grid-layout(
+      fa-options="gridOptions"
     )
-      fa-grid-layout(
-        fa-options="gridOptions"
+      fa-modifier(
+        ng-repeat="divider in dividers"
+        fa-size="[2,{{options.height}}]"
+        fa-origin="[1,0]"
+        fa-align="[1,0]"
       )
-        fa-modifier(
-          ng-repeat="divider in dividers"
-          fa-size="[2,{{options.height}}]"
-          fa-origin="[1,0]"
-          fa-align="[1,0]"
+        fa-surface.seperator(
+          fa-background-color="options.segmentColor"
+          ng-if="$index != dividers.length - 1"
         )
-          fa-surface.seperator(
-            fa-background-color="'#202020'"
-            ng-if="$index != dividers.length - 1"
-          )
 
-    //- colored foreground bar
-    fa-modifier(
-      fa-proportions="[progress.get(),1]"
-      fa-size="[undefined,{{options.height}}]"
-      fa-origin="[0,1]"
-      fa-align="[0,1]"
+  //- colored foreground bar
+  fa-modifier(
+    fa-proportions="[progress.get(),1]"
+    fa-size="[undefined,{{options.height}}]"
+    fa-origin="[0,{{layouts.guide[options.labelPosition]}}]"
+    fa-align="[0,{{layouts.guide[options.labelPosition]}}]"
+  )
+    fa-surface.fill(
+      fa-background-color="options.color"
     )
-      fa-surface.fill(
-        fa-background-color="options.color"
-      )
-      
-    //- indicator
+    
+  //- indicator
+  fa-modifier(
+    fa-origin="[0.5,1]"
+    fa-align="[progress.get(),{{layouts.guide[options.labelPosition]}}]"
+    fa-translate="layouts.indicator.translate[options.labelPosition]"
+    fa-size="[true,true]"
+  )
     fa-modifier(
-      fa-origin="[0.5,1]"
-      fa-align="[progress.get(),1]"
-      fa-translate="layouts.indicator.translate[options.layout]"
-      fa-size="[true,true]"
+      fa-translate="timeline.indicator.translate(labelFade.get())"
+      fa-origin="[0.5,0.5]"
     )
       fa-modifier(
         fa-origin="[0.5,0.5]"
         fa-align="[0.5,0.5]"
-        fa-rotate-z="layouts.indicator.rotate[options.layout]"
+        fa-rotate-z="layouts.indicator.rotate[options.labelPosition]"
+        fa-opacity="timeline.indicator.opacity(labelFade.get())"
+        fa-perspective="70"
       )
-        fa-surface(
-          fa-size="[true,true]"
+        fa-modifier(
+          fa-origin="[0.5,0.5]"
+          fa-rotate-x="timeline.indicator.rotate(labelFade.get())"
         )
-          .meter-arrow(ng-style="{borderTopColor: options.color}")
+          fa-surface(
+            fa-size="[true,true]"
+          )
+            .meter-arrow(ng-style="{borderTopColor: options.color}")
 
-    //- value
-    fa-modifier(
-      fa-origin="[0.5,1]"
-      fa-align="[progress.get(),1]"
-      fa-translate="layouts.value.translate[options.layout]"
-    )
-      fa-surface(
-        fa-size="[true,10]"
-        class="value"
-        fa-origin="[0.5,0.5]"
-        fa-align="[0.5,0.5]"
-      ) {{label || value}}
+  //- value
+  fa-modifier(
+    fa-origin="[0.8 * progress.get() + 0.15,1]"
+    fa-align="[progress.get(),{{layouts.guide[options.labelPosition]}}]"
+    fa-translate="layouts.value.translate[options.labelPosition]"
+  )
+    //- fa-modifier(
+    //-   fa-translate="timeline.label.translate(labelFade.get())"
+    //- )
+    //-   fa-modifier(
+    //-     fa-opacity="timeline.label.opacity(labelFade.get())"
+    //-     fa-rotate-x="timeline.label.rotate(labelFade.get())"
+    //-     fa-perspective="70"
+    //-   )
+    fa-surface(
+      fa-size="[true,10]"
+      class="value"
+    ) {{text || value}}
