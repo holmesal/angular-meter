@@ -1,5 +1,9 @@
 # fa-meter
 
+annotated meters for famo.us + angular
+
+### [demo](http://holmesal.github.io/fa-meter/)
+
 ## getting started
 
 1. `bower install fa-meter`
