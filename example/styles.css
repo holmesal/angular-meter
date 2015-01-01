@@ -1,0 +1,28 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #4A90E2;
+  color: white;
+}
+
+body {
+   font-family: "HelveticaNeue-UltraLight", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+   text-align: center;
+}
+
+p.lead{
+  font-size: 40pt;
+}
+
+p.follow {
+  font-size: 20pt;
+  font-weight: 200;
+}
+
+fa-meter {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  display: block;
+}

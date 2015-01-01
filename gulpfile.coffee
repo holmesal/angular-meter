@@ -16,18 +16,20 @@ rename = require 'gulp-rename'
 
 gulp.task 'scripts', ->
 
-  # coffee -> js
-  js = gulp.src 'src/*.coffee'
-  .pipe coffee
-    bare: true
-  .on 'error', gutil.log
-
   # jade -> html -> js
   html = gulp.src 'src/*.jade'
   .pipe jade()
   .pipe templateCache
     module: 'ah.meter'
     root: 'templates'
+  .pipe gulp.dest '.tmp/'
+
+  # coffee -> js
+  js = gulp.src 'src/*.coffee'
+  .pipe coffee
+    bare: true
+  .on 'error', gutil.log
+
 
   # cross the streams
   merge js, html
@@ -37,6 +39,8 @@ gulp.task 'scripts', ->
   .pipe rename
     extname: '.min.js'
   .pipe gulp.dest 'dist/'
+
+  return true
 
 
 gulp.task 'styles', ->
@@ -51,5 +55,6 @@ gulp.task 'styles', ->
 gulp.task 'watch', ->
   gulp.watch 'src/*.sass', ['styles']
   gulp.watch 'src/*.{coffee,jade}', ['scripts']
+  return true
 
 gulp.task 'default', ['styles', 'scripts', 'watch']

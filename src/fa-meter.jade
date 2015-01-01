@@ -1,16 +1,29 @@
 fa-app.wrapper(
-  ng-style="{height: options.height+2+'px'}"
+  style="height: 200px;"
+  ng-style="{height: options.height+20+'px'}"
 )
+  fa-surface(
+    fa-size="[undefined,undefined]"
+    fa-background-color="'green'"
+  )
+  fa-modifier(
+    fa-origin="[1,0.5]"
+    fa-align="[1,0.5]"
+  )
+    fa-surface(
+      fa-background-color="'red'"
+      fa-size="[10,10]"
+    )
   fa-modifier(
     fa-origin="[0.5,1]"
     fa-align="[0.5,1]"
-    fa-proportions="[1,0.5]"
-    fa-size="[undefined,true]"
+    fa-size="[undefined,undefined]"
   )
     //- full-width background bar
     fa-modifier(
       fa-opacity="options.fade"
       fa-size="[undefined,{{options.height}}]"
+      fa-translate="[0,0,1]"
     )
       fa-surface(
         fa-background-color="options.color"
@@ -19,10 +32,11 @@ fa-app.wrapper(
     //- spacers
     fa-grid-layout(
       fa-options="gridOptions"
+      ng-if="options.segmented"
     )
       fa-modifier(
         ng-repeat="divider in dividers"
-        fa-translate="[1,0,0]"
+        fa-translate="[1,0,2]"
         fa-size="[2,{{options.height}}]"
         fa-origin="[1,0]"
         fa-align="[1,0]"
@@ -36,6 +50,7 @@ fa-app.wrapper(
     fa-modifier(
       fa-proportions="[progress.get(),1]"
       fa-size="[undefined,{{options.height}}]"
+      fa-translate="[0,0,3]"
     )
       fa-surface(
         fa-background-color="options.color"
@@ -69,4 +84,4 @@ fa-app.wrapper(
         class="value"
         fa-origin="[0.5,0.5]"
         fa-align="[0.5,0.5]"
-      ) {{string || value}}
+      ) {{label || value}}

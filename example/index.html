@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="faMeterExample">
+  <head>
+    <meta charset="utf-8">
+    <title>fa-meter</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bower_components/famous/dist/famous.css" />
+    <link rel="stylesheet" href="bower_components/famous-angular/dist/famous-angular.css" />
+    <link rel="stylesheet" href="../dist/fa-meter.css">
+  </head>
+  <body>
+    <p class="lead">fa-meter</p>
+    <p class="follow">sweet annotated meters for famo.us + angular</p>
+
+
+    <div ng-controller="ExampleCtrl">
+
+        <fa-meter value="penguins" label="label" max="peakPenguin" options="options"></fa-meter>
+
+    </div>
+
+
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/famous/dist/famous-global.js"></script>
+    <script src="bower_components/famous-angular/dist/famous-angular.js"></script>
+    <script src="../dist/fa-meter.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
