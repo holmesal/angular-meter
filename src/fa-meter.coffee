@@ -68,7 +68,7 @@ angular.module "ah.meter", ['famous.angular']
       scope.layouts =
         indicator:
           translate:
-            top: [0,-17,0]
+            top: [0,-18,0]
             bottom: [0,17,0]
           rotate:
             top: 0

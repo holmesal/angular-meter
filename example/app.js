@@ -3,7 +3,7 @@ var app = angular.module('faMeterExample', ['famous.angular', 'ah.meter']);
 app.controller('ExampleCtrl', ['$scope', '$interval', function($scope, $interval) {
 
   $scope.options = {
-    duration: 200,
+    duration: 500,
     segmented: true,
     segmentColor: 'red'
   }

@@ -1,65 +1,69 @@
 fa-app.wrapper(
-  style="height: 200px;"
-  ng-style="{height: options.height+20+'px'}"
 )
-  fa-surface(
-    fa-size="[undefined,undefined]"
-    fa-background-color="'green'"
-  )
+  //- fa-surface(
+  //-   fa-size="[undefined,undefined]"
+  //-   fa-background-color="'green'"
+  //- )
+  //- fa-modifier(
+  //-   fa-origin="[1,1]"
+  //-   fa-align="[1,1]"
+  //- )
+  //-   fa-surface(
+  //-     fa-background-color="'red'"
+  //-     fa-size="[10,10]"
+  //-   )
   fa-modifier(
-    fa-origin="[1,0.5]"
-    fa-align="[1,0.5]"
-  )
-    fa-surface(
-      fa-background-color="'red'"
-      fa-size="[10,10]"
-    )
-  fa-modifier(
-    fa-origin="[0.5,1]"
-    fa-align="[0.5,1]"
+    fa-origin="[0,1]"
+    fa-align="[0,1]"
     fa-size="[undefined,undefined]"
   )
     //- full-width background bar
     fa-modifier(
       fa-opacity="options.fade"
       fa-size="[undefined,{{options.height}}]"
-      fa-translate="[0,0,1]"
+      fa-origin="[0,1]"
+      fa-align="[0,1]"
     )
-      fa-surface(
+      fa-surface.faded(
         fa-background-color="options.color"
       )
 
     //- spacers
-    fa-grid-layout(
-      fa-options="gridOptions"
+    fa-modifier(
       ng-if="options.segmented"
+      fa-origin="[0,1]"
+      fa-align="[0,1]"
+      fa-size="[undefined, {{options.height}}]"
     )
-      fa-modifier(
-        ng-repeat="divider in dividers"
-        fa-translate="[1,0,2]"
-        fa-size="[2,{{options.height}}]"
-        fa-origin="[1,0]"
-        fa-align="[1,0]"
+      fa-grid-layout(
+        fa-options="gridOptions"
       )
-        fa-surface(
-          fa-background-color="'#202020'"
-          ng-if="$index != dividers.length - 1"
+        fa-modifier(
+          ng-repeat="divider in dividers"
+          fa-size="[2,{{options.height}}]"
+          fa-origin="[1,0]"
+          fa-align="[1,0]"
         )
+          fa-surface.seperator(
+            fa-background-color="'#202020'"
+            ng-if="$index != dividers.length - 1"
+          )
 
     //- colored foreground bar
     fa-modifier(
       fa-proportions="[progress.get(),1]"
       fa-size="[undefined,{{options.height}}]"
-      fa-translate="[0,0,3]"
+      fa-origin="[0,1]"
+      fa-align="[0,1]"
     )
-      fa-surface(
+      fa-surface.fill(
         fa-background-color="options.color"
       )
       
     //- indicator
     fa-modifier(
-      fa-origin="[0.5,0.5]"
-      fa-align="[progress.get(),0.5]"
+      fa-origin="[0.5,1]"
+      fa-align="[progress.get(),1]"
       fa-translate="layouts.indicator.translate[options.layout]"
       fa-size="[true,true]"
     )
