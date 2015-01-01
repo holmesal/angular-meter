@@ -11,7 +11,7 @@ app.controller('ExampleCtrl', ['$scope', '$interval', '$timeout', '$window',  fu
     },
     bottom: {
       duration: 300,
-      segmented: false,
+      segmented: true,
       segmentColor: '#202020',
       labelPosition: 'bottom',
       color: '#7389C3'
@@ -56,7 +56,7 @@ app.controller('ExampleCtrl', ['$scope', '$interval', '$timeout', '$window',  fu
     // increment('bottom')
     $interval(function(){
       increment('bottom');
-    }, 1000);
+    }, 700);
   }, 500);
 
   $timeout(function(){
