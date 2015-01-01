@@ -10,6 +10,7 @@
     "dist/fa-meter.css"
   ],
   "dependencies": {
+    "angular": "~1.3.4",
     "famous-angular": "https://github.com/Famous/famous-angular.git#af184346b983418a60601b131591180468e14cde"
   },
   "keywords": [
@@ -19,7 +20,7 @@
     "holmesal"
   ],
   "license": "MIT",
-  "homepage": "http://meter.alonso.io",
+  "homepage": "http://holmesal.github.io/fa-meter",
   "ignore": [
     "**/.*",
     "node_modules",
